@@ -60,5 +60,5 @@ We define roughly 20+ functions based on the semantic-str provided in the origin
   ]
   ```
   
-  ## Symbolic Execution
-  We can run the run.py to perform symbolic execution on the GQA provided scene graph to get the answer.
+## Symbolic Execution
+We can run the run.py to perform symbolic execution on the GQA provided scene graph to get the answer.
