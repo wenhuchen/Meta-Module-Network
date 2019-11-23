@@ -5,6 +5,7 @@ This repository contains partial components, the full version will be released i
 1. The generated programs from the program generator.
 2. The symbolic execution for the visual question answering.
 
+## Function Definition
 We define roughly 20+ functions based on the semantic-str provided in the original GQA dataset and categorize them into the following classes:
 1. relate: finding objects with name and relation constraint, two version: normal + reverse.
 2. filter: filter objects with given attributes or filter objects based on horizontal or vertical geometric position. 
@@ -21,7 +22,7 @@ We define roughly 20+ functions based on the semantic-str provided in the origin
 13: same_attr: whether the objects have the same given attributes.
 14: different_attr: whether the objects have different given attributes.
 
-
+## Description of different files
 - API_provider.py: define the functions inside the API
 - sceneGraphs/trainval_bounding_box.json: the scene graph provided by the original GQA dataset
   ```
@@ -59,3 +60,5 @@ We define roughly 20+ functions based on the semantic-str provided in the origin
   ]
   ```
   
+  ## Symbolic Execution
+  We can run the run.py to perform symbolic execution on the GQA provided scene graph to get the answer.
