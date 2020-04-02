@@ -1,9 +1,10 @@
 # Meta-Module-Network
 Code for Paper "Meta Module Network for Compositional Visual Reasoning"
 
-This repository contains partial components, the full version will be released in the future. The released components are listed below:
+This repository contains the following components:
 1. The generated programs from the program generator.
 2. The symbolic execution for the visual question answering.
+3. For evaluation code, please refer to the code/ folder. You need to download the code from google drive: https://drive.google.com/open?id=14sKn_163FYqTVInV6OL_ZukT2wp2uPtn, the instruction to run the code is provided under the code/ folder.
 
 ## Function Definition
 We define roughly 20+ functions based on the semantic-str provided in the original GQA dataset and categorize them into the following classes:
