@@ -4,14 +4,13 @@
 2. The folder contains the evaluation script for GQA-Attention model
 3. Running the code with the following command
 
-```
 Running Command:
 For Validation Balanced Set:
-
+```
 CUDA_VISIBLE_DEVICES=0 python run_experiments.py --do_val --id FinetuneTreeSparseStack2RemovalValSeed6777 --load_from model_ep0_0.5977  --model TreeSparsePostv2 --stacking 2
-
+```
 For Testdev Balanced Set:
-
+```
 CUDA_VISIBLE_DEVICES=0 python run_experiments.py --do_testdev_pred --id FinetuneTreeSparseStack2RemovalValSeed6777 --load_from model_ep0_0.5977  --model TreeSparsePostv2 --stacking 2
 
 ```
