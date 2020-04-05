@@ -163,8 +163,7 @@ In the input file, the following data type is called layer dependency. In the 0-
       ]
     ],
 ```
-The dependency relationship is the critical part in MMN, which is better visualized as below: 
-
+The dependency relationship is the critical part in MMN, for example, the dependency of "[[], [[1,0], [3,0]], [[2,1]], [[4,2], [4,3]]]" is visualized as below: 
 <p>
 <img src="introduction.png" width="800">
 </p>
