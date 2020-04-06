@@ -1,9 +1,14 @@
 # Meta-Module-Network
 Code for Paper "Meta Module Network for Compositional Visual Reasoning"
 
-This repository contains partial components, the full version will be released in the future. The released components are listed below:
+<p>
+<img src="architecture.png" width="800">
+</p>
+
+This repository contains the following components:
 1. The generated programs from the program generator.
 2. The symbolic execution for the visual question answering.
+3. For evaluation code, please refer to the code/ folder. You need to download the code from google drive: https://drive.google.com/open?id=14sKn_163FYqTVInV6OL_ZukT2wp2uPtn, the instruction to run the code is provided under the code/ folder.
 
 ## Function Definition
 We define roughly 20+ functions based on the semantic-str provided in the original GQA dataset and categorize them into the following classes:
@@ -77,3 +82,88 @@ The script will return
   success rate (ALL) = 0.923610917323838, success rate (VALID) = 0.9605288360151759, valid/invalid = 1033742/41320
   ```
 It means that for those questions, whose answer is inside the scene graph, the accuracy is 96%. There are 4% of questions without answers inside the scene graph, therefore the overall accuracy is 92.3%. This is good enough as a symbolic teacher to teach the meta module network to reason.
+
+
+# Meta Module Network
+All the training data (under the questions/ folder) given to the networks are called '*_inputs.json', these files are simply a restructured data format (containing the dependency between the execution from different steps) from the original "*_programs.json" files. For example, the 'trainval_balanced_programs.json' can be used to generate 'trainval_balanced_inputs.json'.
+
+- *_programs.json
+```
+    "2354786",
+    "Is the sky dark?",
+    [
+      "[2486325]=select(sky)",
+      "?=verify([0], dark)"
+    ],
+    "02930152",
+    "yes"
+```
+- *_inputs.json
+```
+    "2354786",
+    "Is the sky dark?",
+    [],
+    [
+      [
+        "select",
+        null,
+        null,
+        null,
+        "sky",
+        null,
+        null,
+        null
+      ],
+      [
+        "verify",
+        null,
+        "dark",
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    [
+      [], 
+      [
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+    "02930152",
+    "yes"
+```
+
+In the input file, the following data type is called program recipe, corresponding to "[2486325]=select(sky)".
+```
+[
+  "select",
+  null,
+  null,
+  null,
+  "sky",
+  null,
+  null,
+  null
+],
+```
+In the input file, the following data type is called layer dependency. In the 0-th element (1st layer of MMN), there is only a [], which means nothing is dependent on the previous layer. In the 1-th element (2nd layer of MMN), there is a [1, 0], which means that the 1-st node's is dependent on 0-th node's output (e.g. "?=verify([0], dark)") in this layer. 
+```
+    [
+      [], 
+      [
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+```
+The dependency relationship is the critical part in MMN, for example, the dependency of "[[], [[1,0], [3,0]], [[2,1]], [[4,2], [4,3]]]" is visualized as below: 
+<p>
+<img src="introduction.png" width="800">
+</p>
