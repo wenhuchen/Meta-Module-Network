@@ -12,7 +12,6 @@ CUDA_VISIBLE_DEVICES=0 python run_experiments.py --do_val --id FinetuneTreeSpars
 For Testdev Balanced Set:
 ```
 CUDA_VISIBLE_DEVICES=0 python run_experiments.py --do_testdev_pred --id FinetuneTreeSparseStack2RemovalValSeed6777 --load_from model_ep0_0.5977  --model TreeSparsePostv2 --stacking 2
-
 ```
 
 4. The trained model does not use the validation split provided by GQA dataset, therefore, the score is about 0.8% lower than reported in the paper.
