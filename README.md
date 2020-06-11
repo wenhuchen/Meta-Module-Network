@@ -85,7 +85,7 @@ It means that for those questions, whose answer is inside the scene graph, the a
 
 
 # Meta Module Network
-All the training data (under the questions/ folder) given to the networks are called '*_inputs.json', these files are simply a restructured data format (containing the dependency between the execution from different steps) from the original "*_programs.json" files. For example, the 'trainval_balanced_programs.json' can be used to generate 'trainval_balanced_inputs.json'.
+All the training data (under the questions/ folder) given to the networks are called '*_inputs.json', these files are simply a restructured data format (containing the dependency between the execution from different steps) from the original "*_programs.json" files. For example, the 'trainval_balanced_programs.json' can be used to generate 'trainval_balanced_inputs.json' using the script in https://github.com/wenhuchen/Meta-Module-Network/blob/master/code/preprocess.py.
 
 - *_programs.json
 ```
