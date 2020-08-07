@@ -1,5 +1,5 @@
 # Meta-Module-Network
-Code for Paper "Meta Module Network for Compositional Visual Reasoning"
+Code for WACV 2021 Paper "Meta Module Network for Compositional Visual Reasoning"
 
 <p>
 <img src="architecture.png" width="800">
