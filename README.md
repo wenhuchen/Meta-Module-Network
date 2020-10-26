@@ -24,7 +24,6 @@ We define roughly 20+ functions based on the semantic-str provided in the origin
 14: different_attr: whether the objects have different given attributes.
 
 ## Description of different files
-- API_provider.py: define the functions inside the API
 - sceneGraphs/trainval_bounding_box.json: the scene graph provided by the original GQA dataset
   ```
     {
