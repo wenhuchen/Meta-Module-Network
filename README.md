@@ -53,6 +53,7 @@ To understand more detailed implementation of MMN, please refer to [README](http
 ## Data Preprocessing [Optional]:
 If you want to know how the programs and training data are generated, please follow the following steps:
 
+### Preprocessing Question-Program Pairs:
 Download the questions from the original [GQA website](https://nlp.stanford.edu/data/gqa/questions1.2.zip) and then put it in the parent folder '../gqa-questions/', the following steps are aimed to convert "questions" into program format as follows:
 1. preprocess the trainval_all_question into trainval_all_programs.json
   ```
@@ -73,24 +74,19 @@ Download the questions from the original [GQA website](https://nlp.stanford.edu/
     python preprocess.py create_inputs
   ```
 
-5. Preprocess "programs" into pair formats as follows:
+### Using NL2Program Model to Predict Test-Dev Programs from input questions:
+
+1. Train the sequence-2-sequence model:
   ```
     python generate_program.py --do_preprocess
   ```
 
-## NL2Program Model [Optional]:
-
-- Train the sequence-2-sequence model:
-  ```
-    python generate_program.py --do_preprocess
-  ```
-
-- Evaluate the NL2Program
+2. Evaluate the NL2Program
   ```
     python generate_program.py --do_testdev
   ```
   
-- Prepare the generated programs for the modular transformer
+3. Prepare the generated programs for the modular transformer
   ```
     python generate_program.py --do_trainval_unbiased
   ```
