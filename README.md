@@ -194,7 +194,7 @@ The dependency relationship is the critical part in MMN, for example, the depend
 <img src="introduction.png" width="800">
 </p>
 
-## Modular Transformer Training and Evaluating
+## Training and Evaluation
 - Prepare the inputs for the modular transformer:
   ```
     python preprocess.py create_pred_inputs
