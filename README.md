@@ -203,13 +203,24 @@ The dependency relationship is the critical part in MMN, for example, the depend
   ```
 - Start the bootstrap training of the modular transoformer
   ```
-    python attention_model.py --model Tree --id TreeTransformerKLFullCalibrated --do_train_all --num_regions 48 --batch_size 1024
+   python run_experiments.py --do_train_all --model TreeSparsePostv2 --id TreeSparsePost2Full --stacking 2 --batch_size 1024
   ```
 - Start the finetunning on the balanced split
   ```
-    python run_experiments.py --do_finetune --model Tree --id NAME_OF_YOUR_MODEL --load_from models/TreeTransformerKLFullCalibrated/THE_MODEL_YOU_WANT_TO_RESUME
+    python run_experiments.py --do_finetune --id FinetuneTreeSparseStack2RemovalFullValSeed6999 --model TreeSparsePostv2 --load_from models/TreeSparsePost2Full --seed 6999 --stacking 2
   ```
 - Test the model on the testdev split
   ```
-    python run_experiments.py --do_testdev_pred --id NAME_OF_YOUR_MODEL --load_from THE_MODEL_YOU_WANT_TO_RESUME
+    python run_experiments.py --do_testdev_pred --id FinetuneTreeSparseStack2RemovalValSeed6777 --load_from [MODEL_NAME]  --model TreeSparsePostv2 --stacking 2
   ```
+
+## Citation
+If you find this paper useful, please add the following reference to your paper.
+```
+  @article{chen2019meta,
+  title={Meta module network for compositional visual reasoning},
+  author={Chen, Wenhu and Gan, Zhe and Li, Linjie and Cheng, Yu and Wang, William and Liu, Jingjing},
+  journal={Proceedings of WACV},
+  year={2021}
+}
+```
