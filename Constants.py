@@ -81,7 +81,7 @@ for k, v in SCENE_ONTOLOGY.items():
 		else:
 			SCENE_ATTRIBUTES[item] = [(SCENE_ATTR.index(k), i)]
 
-with open('GQA_hypernym.json') as f:
+with open('meta_info/GQA_hypernym.json') as f:
 	hypernym = json.load(f)
 
 with open('meta_info/objects.json') as f:
