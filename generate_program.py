@@ -39,8 +39,6 @@ def parse_opt():
     parser.add_argument('--hidden_dim', default=128, type=int, help="The hidden size of the state")
     parser.add_argument('--version', default='', type=str, help="The hidden size of the state")
     parser.add_argument('--beam_size', default=1, type=int, help="The hidden size of the state")
-    parser.add_argument('--word_glove', type=str, default="models/en_emb.npy",
-                        help="whether to train or test the model")
     parser.add_argument('--load_from', type=str, default="", help="whether to train or test the model")
     parser.add_argument('--max_len', default=100, type=int, help="The hidden size of the state")
     parser.add_argument('--debug', default=False, action="store_true", help="Whether to debug it")
@@ -214,7 +212,6 @@ def train(option):
     dataset = GQA(vocab, option)
 
     model = TransformerDecoder(len(vocab), args.hidden_dim, 3, args.hidden_dim, 4)
-    model.word_emb.weight.data.copy_(torch.from_numpy(np.load(args.word_glove)))
     print("loading the pre-trained word vectors from {}".format(args.word_glove))
     model = nn.DataParallel(model)
     model.to(device)
