@@ -96,15 +96,15 @@ Download the questions from the original [GQA website](https://nlp.stanford.edu/
   ```
     python preprocess.py create_pred_inputs
   ```
-- Start the bootstrap training of the modular transoformer or you can download the pre-trained models directly from [Google Drive](https://drive.google.com/file/d/1mAHkfplLfGmL04nNy730_srYk0Rp-BTo/view?usp=sharing)
+- Start the bootstrap training of the modular transoformer or you can download the pre-trained models directly from [Google Drive](https://drive.google.com/file/d/1mAHkfplLfGmL04nNy730_srYk0Rp-BTo/view?usp=sharing). This bootstrap process could take quite a long time, please be patient if you are training on your own:
   ```
    python run_experiments.py --do_train_all --model TreeSparsePostv2 --id TreeSparsePost2Full --stacking 2 --batch_size 1024
   ```
-- Start the finetunning on the balanced split
+- Start the finetunning on the balanced split:
   ```
     python run_experiments.py --do_finetune --id FinetuneTreeSparseStack2RemovalFullValSeed6999 --model TreeSparsePostv2 --load_from models/TreeSparsePost2Full --seed 6999 --stacking 2
   ```
-- Test the model on the testdev split
+- Test the model on the testdev split:
   ```
     python run_experiments.py --do_testdev_pred --id FinetuneTreeSparseStack2RemovalValSeed6777 --load_from [MODEL_NAME]  --model TreeSparsePostv2 --stacking 2
   ```
