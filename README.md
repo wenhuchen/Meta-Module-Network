@@ -96,7 +96,7 @@ Download the questions from the original [GQA website](https://nlp.stanford.edu/
   ```
     python preprocess.py create_pred_inputs
   ```
-- Start the bootstrap training of the modular transoformer
+- Start the bootstrap training of the modular transoformer or you can download the pre-trained models directly from [Google Drive](https://drive.google.com/file/d/1mAHkfplLfGmL04nNy730_srYk0Rp-BTo/view?usp=sharing)
   ```
    python run_experiments.py --do_train_all --model TreeSparsePostv2 --id TreeSparsePost2Full --stacking 2 --batch_size 1024
   ```
